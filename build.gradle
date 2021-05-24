@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+}
+
+group 'nl.jochemkuijpers'
+version '1.0-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+	maven {
+		name 'm2-dv8tion'
+		url 'https://m2.dv8tion.net/releases'
+	}
+}
+
+dependencies {
+	implementation ('net.dv8tion:JDA:4.2.1_265') {
+		exclude module: 'opus-java'
+	}
+	implementation group: 'org.eclipse.collections', name: 'eclipse-collections', version: '10.4.0'
+	implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+	useJUnitPlatform()
+}
